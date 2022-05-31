@@ -1,37 +1,59 @@
-## Welcome to GitHub Pages
+## Trylda - Advanced Binance trading bot
 
-You can use the [editor on GitHub](https://github.com/darrylsite/trylda/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Trylda is a complete trading cryptocurrency trading bot. it works currently only for the Binance exchange both for the Spot and the Future market.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+You can have a quick presentation of the trading bot at https://www.youtube.com/watch?v=_jbbHNzqvLs
 
-### Markdown
+The bot is built in Java so it can be deployed on any platform bot Linux and Windows. I started the project in January 2021.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Features
 
-```markdown
-Syntax highlighted code block
+The bot supports :
+* Own scripting language for dynamic strategy
+* All major technical indicators
+* Ashi Heikin candles
+* Multi timeframe
+* Stop loss take profit
+* Trailing orders
+* Backtesting
 
-# Header 1
-## Header 2
-### Header 3
+### Example of a strategy using the Ashi Heikin candes & EMA
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
 ```
+[Settings]
+    let tradeAmount = input.getTradeAmount()
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+    let canGoLong = 0
+    let canGoShort = 0
 
-### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/darrylsite/trylda/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+[Can go long]
+    Strategy.useAshiHeikinBars(true)
+    if indicator.getEma(8) < indicator.getEma(5)
+    Strategy.setCandleIndex(-1)
+    if indicator.getEma(8) > indicator.getEma(5)
+      canGoLong = 1
+      Strategy.useAshiHeikinBars(false)
 
-### Support or Contact
+[Go Long]
+    Strategy.useAshiHeikinBars(false)
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+    let stopLoss = math.mult(currentMarketPrice(); 0.993)
+    let diffStopLoss = util.diffPercent(currentMarketPrice(); stopLoss)
+
+    Strategy.defineAsLongStrategy()
+    if noPendingOrderExist()
+    if canEnterPosition()
+    if fundAvailable()
+    if canGoLong == 1 && diffStopLoss > 0.3
+    if currentPriceLowerThanCloseLong(2, 3600)
+         let orderId = openLongPosition(tradeAmount)
+         setStopLoss(orderId, stopLoss)
+
+[Long - Exit position]
+    Strategy.defineAsLongStrategy()
+    if hasCryptoBalance()
+    if marketPriceHigherThanAnyLongTrade()
+    if currentPriceProfitable()
+        exitLongPosition()
+```
