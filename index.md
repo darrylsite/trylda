@@ -2,7 +2,8 @@
 
 Trylda is a complete trading cryptocurrency trading bot. it works currently only for the Binance exchange both for the Spot and the Future market.
 
-You can have a quick presentation of the trading bot at https://www.youtube.com/watch?v=_jbbHNzqvLs
+You can have a quick presentation of the trading bot at [https://www.youtube.com/watch?v=_jbbHNzqvLs](https://www.youtube.com/watch?v=_jbbHNzqvLs)
+[![trylda presentation](https://i9.ytimg.com/vi/_jbbHNzqvLs/mq2.jpg?sqp=CIjz3pQG&rs=AOn4CLDX19blwBTpvPcZ00Ti6sJlNtfuBw)](https://www.youtube.com/watch?v=_jbbHNzqvLs)
 
 The bot is built in Java so it can be deployed on any platform bot Linux and Windows. I started the project in January 2021.
 
@@ -57,3 +58,8 @@ The bot supports :
     if currentPriceProfitable()
         exitLongPosition()
 ```
+
+## Technicalrequirement
+The bot is built using Java. The minimum requirement to run the software is Java 11.
+The compilation of the project should be done in Java 17.
+Because of Binance limitation on the APIs, 4 instances of the bot can be run per IP address.
