@@ -1,6 +1,6 @@
 ## Trylda - Advanced Binance trading bot
 
-Trylda is a complete trading cryptocurrency trading bot. it works currently only for the Binance exchange both for the Spot and the Future market.
+Trylda is a complete cryptocurrency trading bot. it currently works only for the Binance exchange, both for the Spot and the Future market.
 
 You can have a quick presentation of the trading bot at [https://www.youtube.com/watch?v=_jbbHNzqvLs](https://www.youtube.com/watch?v=_jbbHNzqvLs)
 [![trylda presentation](https://i9.ytimg.com/vi/_jbbHNzqvLs/mq2.jpg?sqp=CIjz3pQG&rs=AOn4CLDX19blwBTpvPcZ00Ti6sJlNtfuBw)](https://www.youtube.com/watch?v=_jbbHNzqvLs)
